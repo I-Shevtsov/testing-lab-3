@@ -1,0 +1,4 @@
+username,password,expectedResult
+user1,password1,success
+user2,password4,failure
+user3,password3,success

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px;
+    }
+    form {
+      width: 300px;
+      margin: 0 auto;
+    }
+    input {
+      display: block;
+      margin-bottom: 10px;
+      padding: 8px;
+      width: 100%;
+    }
+    button {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #result {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Login Form</h1>
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">Login</button>
+  </form>
+  <div id="result"></div>
+
+  <script>
+    const users = {
+      user1: 'password1',
+      user2: 'password2',
+      user3: 'password3'
+    };
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const result = document.getElementById('result');
+
+      if (users[username] && users[username] === password) {
+        result.textContent = 'success';
+        result.style.color = 'green';
+      } else {
+        result.textContent = 'failure';
+        result.style.color = 'red';
+      }
+    });
+  </script>
+</body>
+</html>
